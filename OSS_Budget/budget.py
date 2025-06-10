@@ -24,4 +24,21 @@ class Budget:
         total = sum(e.amount for e in self.expenses)
         print(f"총 지출: {total}원\n")
 
+def cat_sum(self):
+    if not self.expenses:
+        print("지출 내역이 없습니다.\n")
+        return
+    
+    sums = {}
+    for e in self.expenses:
+        if e.category in sums:
+            sums[e.category] += e.amount
+        else:
+            sums[e.category] = e.amount
+    
+    print("\n[카테고리별 합계]")
+    for c, s in sums.items():
+        print(f"{c}: {s}원")
+    print()
+
 
